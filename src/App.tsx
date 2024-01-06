@@ -14,6 +14,7 @@ function App() {
             <li className='float-right pr-4'>about</li>
             <li className='float-right pr-4'>about2</li>
             <li className='float-right pr-4'>about3</li>
+            <li className='float-right pr-4'>about3</li>
           </ul>
         </nav>
       </header>
