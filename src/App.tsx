@@ -1,6 +1,11 @@
 import UserProfile from './User/UserProfile';
+import { createClient } from '@supabase/supabase-js';
 
 import './App.css';
+
+const supabaseUrl = 'https://tigzqfyrqcmggnuetads.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 function App() {
   return (
@@ -44,7 +49,7 @@ function App() {
           </div>
         </nav>
       </header>
-      <section className='pt-9 lg:container mx-auto'>
+      <section className='pt-9 sm:container mx-auto'>
         <UserProfile />
       </section>
     </div>
