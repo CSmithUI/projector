@@ -1,27 +1,27 @@
 export type User = {
-  _id: Number;
-  firstName: String;
-  lastName: String;
+  _id: string;
+  firstName: string;
+  lastName: string;
   projects: Project[];
-  bio: String;
-  website: String;
+  bio: string;
+  website: string;
 };
 
 export type Project = {
-  id: Number;
-  projName: String;
-  projDateAdded: String;
-  projDescription: String;
-  projImages: String[];
+  id: string;
+  projName: string;
+  projDateAdded: string;
+  projDescription: string;
+  projImages: string[];
 };
 
 export const users: User = {
-  _id: 1,
+  _id: '1',
   firstName: 'James',
   lastName: 'Smith',
   projects: [
     {
-      id: 1,
+      id: '1',
       projName: 'Robot Arm',
       projDateAdded: 'June 11, 2023',
       projDescription:
@@ -29,14 +29,14 @@ export const users: User = {
       projImages: ['img1, img2'],
     },
     {
-      id: 2,
+      id: '2',
       projName: 'E-bike',
       projDateAdded: 'April 05, 2023',
       projDescription: 'An awesome electric cargo bike project',
       projImages: ['img1, img2'],
     },
     {
-      id: 3,
+      id: '3',
       projName: 'Dog food deispenser',
       projDateAdded: 'June 11, 2023',
       projDescription:
@@ -44,7 +44,7 @@ export const users: User = {
       projImages: ['img1, img2'],
     },
     {
-      id: 4,
+      id: '4',
       projName: 'Robot Arm part 2',
       projDateAdded: 'June 11, 2023',
       projDescription:

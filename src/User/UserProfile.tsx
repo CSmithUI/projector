@@ -1,11 +1,12 @@
 //import * as React from 'react';
-import { User, users } from '../data.ts';
+import { Project, User, users } from '../data.ts';
 
+//import user data temp
 const data: User = users;
 
-export interface IUserProfileProps {}
+//export interface IUserProfileProps {}
 
-export default function UserProfile(props: IUserProfileProps) {
+export default function UserProfile() {
   return (
     <div>
       <h2 className='text-2xl font-normal'>
@@ -27,8 +28,8 @@ export default function UserProfile(props: IUserProfileProps) {
       <div>
         <ul>
           {data.projects.map((project) => (
-            <li>
-              <a href='#' key='project.id'>
+            <li key={project.id}>
+              <a href='#' key={project.id}>
                 {project.projName}
               </a>
             </li>
