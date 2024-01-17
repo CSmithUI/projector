@@ -1,5 +1,6 @@
 //import * as React from 'react';
-import { Project, User, users } from '../data.ts';
+import { User, users } from '../data.ts';
+import { useUser } from '@clerk/clerk-react';
 
 //import user data temp
 const data: User = users;
@@ -7,6 +8,10 @@ const data: User = users;
 //export interface IUserProfileProps {}
 
 export default function UserProfile() {
+  //const { user } = useUser();
+
+  //let LoggedInID = user?.id;
+
   return (
     <div>
       <h2 className='text-2xl font-normal'>
