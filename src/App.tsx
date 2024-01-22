@@ -1,9 +1,9 @@
 import UserProfile from "./User/UserProfile";
 import { SignOutButton, SignInButton, useUser } from "@clerk/clerk-react";
-
 import { useConvexAuth, Authenticated, Unauthenticated } from "convex/react";
 
 import "./App.css";
+import useStoreNewUser from "./hooks/useStoreNewUser.ts";
 
 // function App() {
 //   const { isAuthenticated } = useConvexAuth();
@@ -18,9 +18,10 @@ import "./App.css";
 function App() {
   //const { isAuthenticated } = useConvexAuth();
 
-  const { user } = useUser();
+  const userId = useStoreNewUser();
+  console.log(userId);
 
-  let LoggedInID = user?.id;
+  //let LoggedInID = user?.id;
 
   // if (!isAuthenticated) {
   //   console.log(LoggedInID);
@@ -28,41 +29,41 @@ function App() {
   return (
     <>
       <Unauthenticated>
-        <div className="font-sans text-white font-thin">
+        <div className="font-sans font-thin text-white">
           <header className="flex items-center justify-between bg-neutral-950 py-4">
-            <div className="flex items-center flex-shrink-0 text-lime-500 ml-6 float-left">
-              <span className="font-semibold text-xl tracking-tight">
+            <div className="float-left ml-6 flex flex-shrink-0 items-center text-lime-500">
+              <span className="text-xl font-semibold tracking-tight">
                 projector
               </span>
             </div>
-            <nav className="flex items-center justify-between flex-wrap">
-              <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <nav className="flex flex-wrap items-center justify-between">
+              <div className="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
                 <div className="text-sm lg:flex-grow">
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50 hover:text-white mr-4"
+                    className="mr-4 mt-2 block text-neutral-50 hover:text-white lg:mt-0 lg:inline-block"
                   >
                     Docs
                   </a>
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50 hover:text-white mr-4"
+                    className="mr-4 mt-2 block text-neutral-50 hover:text-white lg:mt-0 lg:inline-block"
                   >
                     Examples
                   </a>
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50  hover:text-white"
+                    className="mt-2 block text-neutral-50 hover:text-white lg:mt-0  lg:inline-block"
                   >
                     Blog
                   </a>
                 </div>
                 <div className="px-6">
                   <div
-                    className="inline-block text-sm px-4 py-2 leading-none
-                    border rounded text-neutral-50 border-lime-500
-                    hover:border-transparent hover:text-neutral-950
-                    hover:bg-neutral-50 mt-4 lg:mt-0"
+                    className="mt-4 inline-block rounded border border-lime-500
+                    px-4 py-2 text-sm leading-none
+                    text-neutral-50 hover:border-transparent
+                    hover:bg-neutral-50 hover:text-neutral-950 lg:mt-0"
                   >
                     <SignInButton />
                   </div>
@@ -70,66 +71,50 @@ function App() {
               </div>
             </nav>
           </header>
-          <section className="pt-9 sm:container mx-auto">
+          <section className="mx-auto pt-9 sm:container">
             <p>Please sign in or create an account.</p>
           </section>
         </div>
       </Unauthenticated>
       <Authenticated>
-        <div className="font-sans text-white font-thin">
+        <div className="font-sans font-thin text-white">
           <header className="flex items-center justify-between bg-neutral-950 py-4">
-            <div className="flex items-center flex-shrink-0 text-lime-500 ml-6 float-left">
-              <span className="font-semibold text-xl tracking-tight">
+            <div className="float-left ml-6 flex flex-shrink-0 items-center text-lime-500">
+              <span className="text-xl font-semibold tracking-tight">
                 projector
               </span>
             </div>
-            <nav className="flex items-center justify-between flex-wrap">
-              <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+            <nav className="flex flex-wrap items-center justify-between">
+              <div className="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
                 <div className="text-sm lg:flex-grow">
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50 hover:text-white mr-4"
+                    className="mr-4 mt-2 block text-neutral-50 hover:text-white lg:mt-0 lg:inline-block"
                   >
                     Docs
                   </a>
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50 hover:text-white mr-4"
+                    className="mr-4 mt-2 block text-neutral-50 hover:text-white lg:mt-0 lg:inline-block"
                   >
                     Examples
                   </a>
                   <a
                     href="#responsive-header"
-                    className="block mt-2 lg:inline-block lg:mt-0 text-neutral-50  hover:text-white"
+                    className="mt-2 block text-neutral-50 hover:text-white lg:mt-0  lg:inline-block"
                   >
                     Blog
                   </a>
                 </div>
                 <div className="px-6">
-                  <div
-                    className="
-                    inline-block 
-                    text-sm 
-                    px-4 
-                    py-2 
-                    leading-none
-                    border rounded 
-                    text-neutral-50 
-                    border-neutral-500 
-                    hover:border-neutral-500
-                    hover:border-transparent 
-                    hover:text-neutral-50
-                    hover:bg-neutral-900 
-                    mt-4 
-                    lg:mt-0"
-                  >
+                  <div className="mt-4 inline-block rounded  border border-neutral-500 px-4 py-2  text-sm leading-none text-neutral-50 hover:border-neutral-500 hover:border-transparent hover:bg-neutral-900 hover:text-neutral-50 lg:mt-0">
                     <SignOutButton />
                   </div>
                 </div>
               </div>
             </nav>
           </header>
-          <section className="pt-9 sm:container mx-auto">
+          <section className="mx-auto pt-9 sm:container">
             <UserProfile />
           </section>
         </div>
