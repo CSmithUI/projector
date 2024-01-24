@@ -1,2 +1,3 @@
 import { atom } from "jotai";
-import useStoreNewUser from "./hooks/useStoreNewUser";
+
+export const userId = atom("");

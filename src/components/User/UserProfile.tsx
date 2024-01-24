@@ -1,6 +1,5 @@
 //import * as React from 'react';
 import { User, users } from "../../data.ts";
-import { useUser } from "@clerk/clerk-react";
 
 //import user data temp
 const data: User = users;

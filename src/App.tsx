@@ -1,32 +1,14 @@
-import { SignOutButton, SignInButton, useUser } from "@clerk/clerk-react";
-import { useConvexAuth, Authenticated, Unauthenticated } from "convex/react";
+import { SignOutButton, SignInButton } from "@clerk/clerk-react";
+import { Authenticated, Unauthenticated } from "convex/react";
+import { Outlet } from "react-router-dom";
 
 import "./App.css";
 import useStoreNewUser from "./hooks/useStoreNewUser.ts";
 
-import { UserHome } from "./components/User/UserHome.tsx";
-
-// function App() {
-//   const { isAuthenticated } = useConvexAuth();
-
-//   return (
-//     <div className="App">
-//       {isAuthenticated ? "Logged in" : "Logged out or still loading"}
-//     </div>
-//   );
-// }
-
 function App() {
-  //const { isAuthenticated } = useConvexAuth();
-
   const userId = useStoreNewUser();
 
   console.log(userId);
-
-  //let LoggedInID = user?.id;
-
-  // if (!isAuthenticated) {
-  //   console.log(LoggedInID);
 
   return (
     <>
@@ -117,7 +99,7 @@ function App() {
             </nav>
           </header>
           <section className="mx-auto pt-9 sm:container">
-            <UserHome />
+            <Outlet />
           </section>
         </div>
       </Authenticated>
