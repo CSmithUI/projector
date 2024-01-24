@@ -7,7 +7,7 @@ export default defineSchema({
     tokenIdentifier: v.string(),
   }).index("by_token", ["tokenIdentifier"]),
   projects: defineTable({
-    owner: v.id("users"),
+    owner: v.string(),
     projName: v.string(),
     synopsis: v.string(),
   }).index("by_owner", ["owner"]),

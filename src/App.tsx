@@ -1,9 +1,10 @@
-import UserProfile from "./User/UserProfile";
 import { SignOutButton, SignInButton, useUser } from "@clerk/clerk-react";
 import { useConvexAuth, Authenticated, Unauthenticated } from "convex/react";
 
 import "./App.css";
 import useStoreNewUser from "./hooks/useStoreNewUser.ts";
+
+import { UserHome } from "./components/User/UserHome.tsx";
 
 // function App() {
 //   const { isAuthenticated } = useConvexAuth();
@@ -19,6 +20,7 @@ function App() {
   //const { isAuthenticated } = useConvexAuth();
 
   const userId = useStoreNewUser();
+
   console.log(userId);
 
   //let LoggedInID = user?.id;
@@ -115,7 +117,7 @@ function App() {
             </nav>
           </header>
           <section className="mx-auto pt-9 sm:container">
-            <UserProfile />
+            <UserHome />
           </section>
         </div>
       </Authenticated>

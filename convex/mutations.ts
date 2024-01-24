@@ -1,5 +1,5 @@
 import { mutation } from "./_generated/server";
-import { useUser } from "@clerk/clerk-react";
+import { v } from "convex/values";
 
 export const storeUser = mutation({
   args: {},
@@ -27,6 +27,27 @@ export const storeUser = mutation({
     return await ctx.db.insert("users", {
       name: identity.name!,
       tokenIdentifier: identity.tokenIdentifier,
+    });
+  },
+});
+
+export const createNewProject = mutation({
+  args: {
+    //owner: v.string(),
+    projName: v.string(),
+    synopsis: v.string(),
+  },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Called storeUser without authentication present");
+    }
+    const token = identity.tokenIdentifier;
+
+    await ctx.db.insert("projects", {
+      owner: token,
+      projName: args.projName,
+      synopsis: args.synopsis,
     });
   },
 });

@@ -1,6 +1,6 @@
 //import * as React from 'react';
-import { User, users } from '../data.ts';
-import { useUser } from '@clerk/clerk-react';
+import { User, users } from "../../data.ts";
+import { useUser } from "@clerk/clerk-react";
 
 //import user data temp
 const data: User = users;
@@ -14,18 +14,18 @@ export default function UserProfile() {
 
   return (
     <div>
-      <h2 className='text-2xl font-normal'>
+      <h2 className="text-2xl font-normal">
         {data.firstName} {data.lastName}
       </h2>
-      <p className='mt-6'>{data.bio}</p>
+      <p className="mt-6">{data.bio}</p>
       <p>
         <a
-          href='#'
-          className='
+          href="#"
+          className="
           mt-6 
           text-lime-200 
           hover:text-lime-500 
-          hover:underline '
+          hover:underline "
         >
           {data.website}
         </a>
@@ -34,7 +34,7 @@ export default function UserProfile() {
         <ul>
           {data.projects.map((project) => (
             <li key={project.id}>
-              <a href='#' key={project.id}>
+              <a href="#" key={project.id}>
                 {project.projName}
               </a>
             </li>
