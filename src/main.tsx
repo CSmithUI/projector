@@ -6,15 +6,16 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import App from "./App.tsx";
-import { UserHome } from "./components/User/UserHome.tsx";
-import "./index.css";
-
 import { ClerkProvider, useAuth } from "@clerk/clerk-react";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
 import { ConvexReactClient } from "convex/react";
-import CreateProject from "./components/CreateProject.tsx";
+
+import App from "./App.tsx";
+import CreateProject from "./components/Projects/CreateProject.tsx";
 import UserProfile from "./components/User/UserProfile.tsx";
+import UserHome from "./components/User/UserHome.tsx";
+import ProjectDetail from "./components/Projects/ProjectDetail.tsx";
+import "./index.css";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path="/home" element={<UserHome />}></Route>
       <Route path="/createproject" element={<CreateProject />}></Route>
       <Route path="/user" element={<UserProfile />}></Route>
+      <Route path="/project/:projectId" element={<ProjectDetail />}></Route>
     </Route>,
   ),
 );

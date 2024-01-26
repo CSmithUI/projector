@@ -1,11 +1,11 @@
-import ProjectTile from ".././ProjectTile";
+import ProjectTile from "../Projects/ProjectTile";
 import { Link } from "react-router-dom";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 
 import { Project } from "../../utilities/types";
 
-export function UserHome() {
+export default function UserHome() {
   const projects = useQuery(api.queries.getUserProjects);
   console.log(projects);
 
@@ -18,13 +18,15 @@ export function UserHome() {
       </Link>
       <div className="w-100 flex flex-wrap content-center">
         {projects?.map(
-          (project: Project): JSX.Element => (
+          (project): JSX.Element => (
             <div className="mr-8 " key={project._id}>
-              <ProjectTile
-                name={project.projName}
-                synopsis={project.synopsis}
-                key={project._id}
-              />
+              <Link to={`/project/` + project._id}>
+                <ProjectTile
+                  name={project.projName}
+                  synopsis={project.synopsis}
+                  key={project._id}
+                />
+              </Link>
             </div>
           ),
         )}

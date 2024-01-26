@@ -18,3 +18,14 @@ export const getUserProjects = query({
     return projects;
   },
 });
+
+export const getProjectDetail = query({
+  args: { projectId: v.string() },
+  handler: async (ctx, args) => {
+    const project = await ctx.db
+      .query("projects")
+      .filter((q) => q.eq(q.field("_id"), args.projectId))
+      .collect();
+    return project;
+  },
+});
