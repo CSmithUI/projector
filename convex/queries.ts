@@ -9,10 +9,10 @@ export const getUserProjects = query({
     if (!identity) {
       throw new Error("Called storeUser without authentication present");
     }
-    const token = identity.tokenIdentifier;
+
     const projects = await ctx.db
       .query("projects")
-      .filter((q) => q.eq(q.field("owner"), token))
+      .filter((q) => q.eq(q.field("owner"), identity.subject))
       .order("desc")
       .collect();
     return projects;

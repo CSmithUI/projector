@@ -38,6 +38,7 @@ export default function UploadImages() {
               alert(`ERROR! ${error}`);
             }}
           />
+          //upload images
         </div>
       </div>
     </section>

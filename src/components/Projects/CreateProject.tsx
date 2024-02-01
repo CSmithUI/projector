@@ -29,7 +29,7 @@ export default function CreateProject() {
       synopsis: synopsis,
     });
 
-    navigate("CreateProject/UploadImages");
+    navigate("/");
   };
 
   return (
@@ -74,7 +74,6 @@ export default function CreateProject() {
                 className="mt-10 rounded-full bg-lime-600 pb-2 pl-3 pr-3 pt-1 font-light leading-5 text-stone-50 hover:bg-lime-800"
                 type="submit"
               >
-                {" "}
                 <span className="text-xl">+</span> Save Project
               </button>
             </p>

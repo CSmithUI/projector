@@ -25,12 +25,9 @@ const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route path="/home" element={<UserHome />}></Route>
+      <Route path="/" element={<UserHome />}></Route>
       <Route path="/createproject" element={<CreateProject />}></Route>
-      <Route
-        path="/createproject/uploadimages"
-        element={<UploadImages />}
-      ></Route>
+
       <Route path="/user" element={<UserProfile />}></Route>
       <Route path="/project/:projectId" element={<ProjectDetail />}></Route>
     </Route>,

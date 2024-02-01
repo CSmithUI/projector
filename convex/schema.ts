@@ -4,8 +4,9 @@ import { v } from "convex/values";
 export default defineSchema({
   users: defineTable({
     name: v.string(),
+    clerkId: v.string(),
     tokenIdentifier: v.string(),
-  }).index("by_token", ["tokenIdentifier"]),
+  }).index("by_clerkId", ["clerkId"]),
   projects: defineTable({
     owner: v.string(),
     projName: v.string(),
