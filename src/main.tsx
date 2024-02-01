@@ -12,6 +12,7 @@ import { ConvexReactClient } from "convex/react";
 
 import App from "./App.tsx";
 import CreateProject from "./components/Projects/CreateProject.tsx";
+import UploadImages from "./components/Projects/UploadImages.tsx";
 import UserProfile from "./components/User/UserProfile.tsx";
 import UserHome from "./components/User/UserHome.tsx";
 import ProjectDetail from "./components/Projects/ProjectDetail.tsx";
@@ -26,6 +27,10 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />}>
       <Route path="/home" element={<UserHome />}></Route>
       <Route path="/createproject" element={<CreateProject />}></Route>
+      <Route
+        path="/createproject/uploadimages"
+        element={<UploadImages />}
+      ></Route>
       <Route path="/user" element={<UserProfile />}></Route>
       <Route path="/project/:projectId" element={<ProjectDetail />}></Route>
     </Route>,

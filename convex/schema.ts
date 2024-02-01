@@ -10,5 +10,11 @@ export default defineSchema({
     owner: v.string(),
     projName: v.string(),
     synopsis: v.string(),
+    projImages: v.optional(v.array(v.string())),
   }).index("by_owner", ["owner"]),
+  projectImages: defineTable({
+    storageId: v.string(),
+    projectId: v.string(),
+    owner: v.string(),
+  }).index("by_projectId", ["projectId"]),
 });

@@ -31,6 +31,8 @@ export const storeUser = mutation({
   },
 });
 
+// Adding a project
+
 export const createNewProject = mutation({
   args: {
     //owner: v.string(),
