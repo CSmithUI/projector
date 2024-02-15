@@ -11,9 +11,11 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.30.3",
+    "@emotion/react": "^11.11.3",
     "@xixixao/uploadstuff": "^0.0.5",
     "convex": "^1.7.1",
     "jotai": "^2.6.2",
+    "jotai-devtools": "^0.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.1"

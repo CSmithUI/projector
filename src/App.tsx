@@ -1,9 +1,10 @@
-import { SignOutButton, SignInButton } from "@clerk/clerk-react";
+import { SignOutButton, SignInButton, UserButton } from "@clerk/clerk-react";
 import { Authenticated, Unauthenticated } from "convex/react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 import "./App.css";
 import useStoreNewUser from "./hooks/useStoreNewUser.ts";
+import { DevTools } from "jotai-devtools";
 
 function App() {
   const userId = useStoreNewUser();
@@ -12,13 +13,16 @@ function App() {
 
   return (
     <>
+      <DevTools />
       <Unauthenticated>
         <div className="font-sans font-thin text-white">
           <header className="flex items-center justify-between bg-neutral-950 py-4">
             <div className="float-left ml-6 flex flex-shrink-0 items-center text-lime-500">
-              <span className="text-xl font-semibold tracking-tight">
-                projector
-              </span>
+              <Link to="/">
+                <span className="text-xl font-semibold tracking-tight">
+                  projector
+                </span>
+              </Link>
             </div>
             <nav className="flex flex-wrap items-center justify-between">
               <div className="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
@@ -64,9 +68,11 @@ function App() {
         <div className="font-sans font-thin text-white">
           <header className="flex items-center justify-between bg-neutral-950 py-4">
             <div className="float-left ml-6 flex flex-shrink-0 items-center text-lime-500">
-              <span className="text-xl font-semibold tracking-tight">
-                projector
-              </span>
+              <Link to="/">
+                <span className="text-xl font-semibold tracking-tight">
+                  projector
+                </span>
+              </Link>
             </div>
             <nav className="flex flex-wrap items-center justify-between">
               <div className="block w-full flex-grow lg:flex lg:w-auto lg:items-center">
@@ -91,8 +97,8 @@ function App() {
                   </a>
                 </div>
                 <div className="px-6">
-                  <div className="mt-4 inline-block rounded  border border-neutral-500 px-4 py-2  text-sm leading-none text-neutral-50 hover:border-neutral-500 hover:border-transparent hover:bg-neutral-900 hover:text-neutral-50 lg:mt-0">
-                    <SignOutButton />
+                  <div className="mt-4 rounded-full border border-neutral-500 text-neutral-50 hover:border-rose-600 lg:mt-0">
+                    <UserButton />
                   </div>
                 </div>
               </div>

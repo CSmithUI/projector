@@ -2,11 +2,17 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
+import { atom, useAtom } from "jotai";
 
 export default function CreateProject() {
   const [name, setName] = useState("");
   const [synopsis, setSynopsis] = useState("");
   const navigate = useNavigate();
+
+  const newProjectAtom = atom({
+    name: "",
+    synopsis: "",
+  });
 
   //const storeProject = (projectInfo: Project) => {};
 

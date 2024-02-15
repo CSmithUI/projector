@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 
-import { Project } from "../../utilities/types";
-
 export default function UserHome() {
   const projects = useQuery(api.queries.getUserProjects);
   console.log(projects);
